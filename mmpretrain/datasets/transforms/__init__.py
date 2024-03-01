@@ -1,6 +1,7 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 from mmcv.transforms import (CenterCrop, LoadImageFromFile, Normalize,
                              RandomFlip, RandomGrayscale, RandomResize, Resize)
+from mmdet.datasets.transforms import LoadMultiChannelImageFromFiles
 
 from mmpretrain.registry import TRANSFORMS
 from .auto_augment import (AutoAugment, AutoContrast, BaseAugTransform,
@@ -18,7 +19,7 @@ from .processing import (Albumentations, BEiTMaskGenerator, CleanCaption,
 from .wrappers import ApplyToList, MultiView
 
 for t in (CenterCrop, LoadImageFromFile, Normalize, RandomFlip,
-          RandomGrayscale, RandomResize, Resize):
+          RandomGrayscale, RandomResize, Resize, LoadMultiChannelImageFromFiles):
     TRANSFORMS.register_module(module=t)
 
 __all__ = [
